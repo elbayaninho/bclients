@@ -1,0 +1,54 @@
+<script>
+    iziToast.settings({
+      timeout: 3000,
+      resetOnHover: true,
+      transitionIn: 'flipInX',
+      transitionOut: 'flipOutX',
+      position: 'topCenter',
+    });
+  
+    {% for message in messages %}
+      var tag = "{{ message.tags }}";
+      var text_message = '{{ message }}';
+      if (tag === "success") {
+        iziToast.success({
+          timeout: 5000,
+          icon: 'fa fa-check-circle',
+          title: 'SUCCESS',
+          message: text_message
+        });
+      }
+      if (tag === "info") {
+        iziToast.info({
+          timeout: 6000,
+          icon: 'fa fa-info-circle',
+          title: 'INFO',
+          message: text_message
+        });
+      }
+      if (tag === "danger") {
+        iziToast.error({
+          timeout: 7000,
+          icon: 'fa fa-times-circle',
+          title: 'DANGER',
+          message: text_message
+        });
+      }
+      if (tag === "debug") {
+        iziToast.debug({
+          timeout: 5000,
+          icon: 'fa fa-bug',
+          title: 'DEBUG',
+          message: text_message
+        });
+      }
+      if (tag === "warning") {
+        iziToast.warning({
+          timeout: 6000,
+          icon: 'fa fa-times-circle',
+          title: 'WARNING',
+          message: text_message
+        });
+      }
+    {% endfor %}
+  </script>
